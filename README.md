@@ -21,7 +21,7 @@ poultry-management-system/
 └── web-app/                  # Companion Web Application (Frontend Dashboard)
     ├── index.html            # Core structural dashboard layout
     ├── styles.css            # Custom layout aesthetics
-    └── app.js                # HiveMQ WebSocket event handlers
+    └── app.js                # MQTT Broker WebSocket event handlers
 
 ```
 
@@ -63,7 +63,7 @@ For security compliance, the repository completely strips personal credentials f
 // Configuration snippet inside firmware/src/config.h
 const char* ssid     = "YOUR_WIFI_SSID";
 const char* password = "YOUR_WIFI_PASSWORD";
-const char* mqtt_server = "YOUR_SECURE_HIVEMQ_CLUSTER_ENDPOINT.hivemq.cloud";
+const char* mqtt_server = "YOUR_SECURE_MQTT_ BROKER_CLUSTER_ENDPOINT";
 const int   mqtt_port   = 8883; // Secure TLS Port
 
 ```
@@ -88,6 +88,18 @@ pio device monitor
 ```
 
 ---
+---
+
+## 📱 Temporary HMI Mobile App Setup
+
+Pending the full deployment of the custom companion web application in the `web-app/` directory, the system currently uses the **IoT MQTT Panel** mobile application (or any standard MQTT client) for live testing, telemetry display, and manual hardware overrides.
+
+### Connection Configuration:
+1. **Broker Web-Socket / MQTT Endpoint:** Use the secure cluster URL provided in `config.h`.
+2. **Port:** `8883` (SSL/TLS secure connection).
+3. **Authentication:** Enter your MQTT Broker database username and password.
+
+To build the dashboard interface on your phone, create widgets (Gauges, Text Displays, and Buttons) and map them to the corresponding topics in the **MQTT Telemetry Matrix** below.
 
 ## 📊 MQTT Telemetry & Messaging Architecture
 
