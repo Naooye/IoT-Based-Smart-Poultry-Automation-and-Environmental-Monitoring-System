@@ -1,0 +1,6 @@
+
+firmware/.pio/
+firmware/.vscode/
+firmware/src/config.h
+.DS_Store
+Thumbs.db
